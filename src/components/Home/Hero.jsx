@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FiArrowRight, FiShoppingBag, FiStar, FiTruck } from "react-icons/fi";
-
+import hero from "../../assets/hero.webp";
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500">
@@ -81,7 +81,7 @@ const Hero = () => {
           >
             <div className="relative z-10">
               <img
-                src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=600&fit=crop"
+                src={hero}
                 alt="Featured"
                 className="w-full h-[600px] object-cover rounded-3xl shadow-2xl"
               />

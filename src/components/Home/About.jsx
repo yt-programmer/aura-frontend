@@ -30,9 +30,9 @@ const About = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-white/80 text-lg mb-6"
               >
-                At Aura, we believe that great products should be accessible to
-                everyone. Our journey began with a simple mission: to curate the
-                finest selection of premium items that enhance your daily life.
+                AURA Streetwear built for presence. Oversized silhouettes,
+                artistic designs, and premium comfort — made for those who move
+                differently.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, x: -20 }}

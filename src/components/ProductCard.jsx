@@ -40,13 +40,15 @@ const ProductCard = ({ product, isNew }) => {
             ${product.price.toFixed(2)}
           </span>
           <div className="flex gap-2">
-            <motion.button
+            <motion.a
+              href={`https://wa.me/201066394593?text=${encodeURIComponent("السلام عليكم، أود شراء المنتج: " + product.name + " بسعر: $" + product.price.toFixed(2))}`}
+              target="_blank"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               className="p-2 bg-gray-100 hover:bg-indigo-600 hover:text-white rounded-lg transition-colors"
             >
               Buy Now
-            </motion.button>
+            </motion.a>
           </div>
         </div>
       </div>
