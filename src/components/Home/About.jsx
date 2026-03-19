@@ -34,17 +34,6 @@ const About = () => {
                 artistic designs, and premium comfort — made for those who move
                 differently.
               </motion.p>
-              <motion.p
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-white/80 text-lg mb-8"
-              >
-                We partner with trusted brands and artisans to bring you
-                products that combine exceptional quality, timeless design, and
-                affordable pricing.
-              </motion.p>
             </div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}
