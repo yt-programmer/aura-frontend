@@ -26,14 +26,12 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <a
-          href="https://www.instagram.com/auraa_2222/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="grid   grid-cols-1 md:grid-cols-2 gap-8  "
-        >
+        <div className="grid   grid-cols-1 md:grid-cols-2 gap-8  ">
           {/* Instagram */}
-          <motion.div
+          <motion.a
+            href="https://www.instagram.com/auraa_2222/"
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -45,11 +43,13 @@ const Contact = () => {
             </div>
             <h3 className="text-xl font-semibold mb-2">Instagram</h3>
             <p className="text-white/80">Follow us on Instagram</p>
-          </motion.div>
+          </motion.a>
 
           {/* WhatsApp */}
           <motion.a
             href="https://wa.me/201066394593"
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -63,7 +63,7 @@ const Contact = () => {
             <h3 className="text-xl font-semibold mb-2">WhatsApp</h3>
             <p className="text-white/80">Chat with us</p>
           </motion.a>
-        </a>
+        </div>
       </div>
     </section>
   );

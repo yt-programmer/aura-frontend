@@ -10,9 +10,6 @@ import Error from "../Error";
 const ProductsHome = () => {
   const { products, loading, error } = useGetProducts(1, 3);
 
-  useEffect(() => {
-    console.log(error);
-  }, [error]);
   return (
     <section className="py-24 bg-gray-900 relative overflow-hidden">
       {/* Background Pattern */}
