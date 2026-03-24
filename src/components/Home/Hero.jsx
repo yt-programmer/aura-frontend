@@ -76,7 +76,7 @@ const Hero = () => {
               <img
                 src={hero}
                 alt="Featured"
-                className="w-full h-[600px] object-cover rounded-3xl shadow-2xl"
+                className="w-full  object-cover rounded-3xl shadow-2xl"
               />
             </div>
             <div className="absolute top-10 -right-10 w-40 h-40 bg-yellow-300 rounded-full opacity-20"></div>
