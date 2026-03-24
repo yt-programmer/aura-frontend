@@ -16,7 +16,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-50"
+      className="fixed top-0 left-0 right-0 bg-gray-900 backdrop-blur-md shadow-sm z-50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -94,7 +94,7 @@ const Navbar = () => {
                       `block py-2 text-base font-medium ${
                         isActive
                           ? "text-indigo-600"
-                          : "text-gray-600 hover:text-indigo-600"
+                          : "text-gray-100 hover:text-indigo-600"
                       }`
                     }
                   >

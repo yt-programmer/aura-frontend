@@ -3,14 +3,14 @@ import React from "react";
 import { motion } from "framer-motion";
 const About = () => {
   return (
-    <section className="py-24 bg-gray-50 relative" id="about">
+    <section className="py-24 bg-gray-950 relative" id="about">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-3xl p-12 lg:p-20"
+          className="bg-gray-900 rounded-3xl p-12 lg:p-20"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -26,7 +26,6 @@ const About = () => {
               <motion.p
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-white/80 text-lg mb-6"
               >

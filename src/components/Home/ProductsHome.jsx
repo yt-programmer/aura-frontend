@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProductCard from "../../components/ProductCard";
 import { FiArrowRight } from "react-icons/fi";
 import { motion } from "framer-motion";
@@ -9,6 +9,10 @@ import Error from "../Error";
 
 const ProductsHome = () => {
   const { products, loading, error } = useGetProducts(1, 3);
+
+  useEffect(() => {
+    console.log(error);
+  }, [error]);
   return (
     <section className="py-24 bg-gray-900 relative overflow-hidden">
       {/* Background Pattern */}

@@ -3,7 +3,10 @@ import { FiInstagram, FiMessageCircle } from "react-icons/fi";
 import { motion } from "framer-motion";
 const Contact = () => {
   return (
-    <section className="py-24 bg-white relative overflow-hidden" id="contact">
+    <section
+      className="py-24 bg-gray-800 relative overflow-hidden"
+      id="contact"
+    >
       {/* Decorative Elements */}
       <div className="absolute top-10 left-10 w-32 h-32 bg-yellow-200 rounded-full opacity-30"></div>
       <div className="absolute bottom-10 right-10 w-48 h-48 bg-purple-200 rounded-full opacity-30"></div>
@@ -15,7 +18,7 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-100 mb-4">
             Get In Touch
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">

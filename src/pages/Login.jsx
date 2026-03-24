@@ -54,10 +54,10 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20 pb-12 flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-purple-50 relative overflow-hidden">
+    <div className="min-h-screen pt-20 pb-12 flex items-center justify-center bg-gray-950 relative overflow-hidden">
       {/* Background Decorations */}
-      <div className="absolute top-20 left-20 w-72 h-72 bg-purple-200 rounded-full  filter blur-xl   opacity-30"></div>
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-indigo-200 rounded-full filter blur-xl opacity-30"></div>
+      <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500 rounded-full  filter blur-xl   opacity-30"></div>
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-indigo-600 rounded-full filter blur-xl opacity-30"></div>
 
       <div className="relative mx-auto md:px-4">
         {/* Logo */}
@@ -80,10 +80,10 @@ const Login = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-white   md:rounded-3xl shadow-xl p-15"
+          className="bg-gray-900   md:rounded-3xl shadow-xl p-15"
         >
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+            <h2 className="text-2xl font-semibold text-gray-600 mb-2">
               Welcome Back
             </h2>
             <p className="text-gray-500 text-sm">
@@ -112,7 +112,7 @@ const Login = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   placeholder="admin@aura.com"
-                  className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                  className="w-full text-white pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
                 />
               </div>
             </motion.div>
@@ -137,7 +137,7 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   placeholder="Enter your password"
-                  className="w-full pl-12 pr-12 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                  className="w-full  text-white pl-12 pr-12 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
                 />
                 <button
                   type="button"

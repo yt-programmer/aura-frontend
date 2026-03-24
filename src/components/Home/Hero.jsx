@@ -4,15 +4,8 @@ import { FiArrowRight, FiShoppingBag, FiStar, FiTruck } from "react-icons/fi";
 import hero from "../../assets/hero.webp";
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-white rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-yellow-300 rounded-full filter blur-3xl"></div>
-      </div>
-
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-gray-800">
       {/* Diagonal Shape */}
-      <div className="absolute right-0 top-0 w-1/2 h-full bg-white transform skew-x-12 translate-x-20 hidden lg:block"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
