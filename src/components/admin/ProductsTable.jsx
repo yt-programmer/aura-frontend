@@ -13,21 +13,21 @@ const ProductsTable = ({
   onDelete,
 }) => {
   return (
-    <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white">
+    <div className="overflow-hidden rounded-3xl border border-gray-200 bg-gray-900">
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="bg-gray-50">
-              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">
+            <tr className="bg-gray-800">
+              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-200">
                 Image
               </th>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">
+              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-200">
                 Name
               </th>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">
+              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-200">
                 Price
               </th>
-              <th className="px-6 py-4 text-right text-sm font-semibold text-gray-900">
+              <th className="px-6 py-4 text-right text-sm font-semibold text-gray-200">
                 Actions
               </th>
             </tr>
@@ -68,8 +68,7 @@ const ProductsTable = ({
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
-                  whileHover={{ backgroundColor: "rgba(249, 250, 251, 1)" }}
-                  className="transition-colors"
+                  className="transition-colors "
                 >
                   <td className="px-6 py-4">
                     <motion.div
@@ -84,7 +83,7 @@ const ProductsTable = ({
                     </motion.div>
                   </td>
                   <td className="px-6 py-4">
-                    <p className="font-medium text-gray-900">{product.name}</p>
+                    <p className="font-medium text-gray-300">{product.name}</p>
                   </td>
                   <td className="px-6 py-4">
                     <p className="font-semibold text-indigo-600">

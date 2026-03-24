@@ -154,7 +154,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-12 bg-gray-50">
+    <div className="min-h-screen pt-24 pb-12 bg-gray-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -167,7 +167,7 @@ const Dashboard = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-3xl font-bold text-gray-900"
+              className="text-3xl font-bold text-gray-500"
             >
               Admin Dashboard
             </motion.h1>
