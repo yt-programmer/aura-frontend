@@ -94,7 +94,7 @@ const Navbar = () => {
                       `block py-2 text-base font-medium ${
                         isActive
                           ? "text-indigo-600"
-                          : "text-gray-100 hover:text-indigo-600"
+                          : "text-gray-600 hover:text-indigo-600"
                       }`
                     }
                   >
