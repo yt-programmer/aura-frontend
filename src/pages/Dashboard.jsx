@@ -55,6 +55,8 @@ const Dashboard = () => {
           description: newProduct.description,
           price: newProduct.price,
           image: newProduct.image,
+          colors: newProduct.colors,
+          size: newProduct.size,
         }),
       });
 
@@ -92,6 +94,8 @@ const Dashboard = () => {
             name: updatedProduct.name,
             description: updatedProduct.description,
             price: updatedProduct.price,
+            colors: updatedProduct.colors,
+            size: updatedProduct.size,
           }),
         },
       );

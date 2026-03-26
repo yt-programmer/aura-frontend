@@ -1,40 +1,88 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { FiX } from "react-icons/fi";
 
 const EditProductModal = ({ open, onClose, product, onEdit }) => {
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
-  const [description, setDescription] = useState("");
+  const [form, setForm] = useState({
+    name: "",
+    price: "",
+    description: "",
+    colors: "",
+    size: "",
+  });
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  // =========================
+  // Fill data when product changes
+  // =========================
   useEffect(() => {
     if (product) {
-      setName(product.name);
-      setPrice(product.price.toString());
-
-      setDescription(product.description || "");
+      setForm({
+        name: product.name || "",
+        price: product.price?.toString() || "",
+        description: product.description || "",
+        colors: product.colors?.join(", ") || "",
+        size: product.size?.join(", ") || "",
+      });
     }
   }, [product]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // =========================
+  // Handle input
+  // =========================
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
-    const updatedProduct = {
-      ...product,
-
-      name,
-      description,
-      price: parseFloat(price),
-    };
-
-    onEdit(updatedProduct);
-    handleClose();
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
+  // =========================
+  // Submit
+  // =========================
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    try {
+      setLoading(true);
+
+      const updatedProduct = {
+        ...product,
+        name: form.name.trim(),
+        description: form.description.trim(),
+        price: parseFloat(form.price),
+        colors: form.colors.split(",").map((c) => c.trim()),
+        size: form.size.split(",").map((s) => s.trim()),
+      };
+
+      await onEdit(updatedProduct);
+
+      handleClose();
+    } catch (err) {
+      setError(err.message || "Failed to update product");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // =========================
+  // Reset + Close
+  // =========================
   const handleClose = () => {
-    setName("");
-    setPrice("");
-    setDescription("");
+    setForm({
+      name: "",
+      price: "",
+      description: "",
+      colors: "",
+      size: "",
+    });
+
+    setError("");
     onClose();
   };
 
@@ -46,121 +94,106 @@ const EditProductModal = ({ open, onClose, product, onEdit }) => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
         className="absolute inset-0 bg-black/50 backdrop-blur-sm"
         onClick={handleClose}
       />
 
-      {/* Modal Content */}
+      {/* Modal */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.8, y: 20 }}
-        transition={{ type: "spring", duration: 0.5 }}
         className="relative bg-white rounded-3xl shadow-2xl w-full max-w-md mx-4 p-6"
       >
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="flex justify-between items-center mb-6"
-        >
+        <div className="flex justify-between items-center mb-6">
           <h3 className="text-xl font-semibold text-gray-900">Edit Product</h3>
-          <motion.button
-            whileHover={{ scale: 1.1, rotate: 90 }}
-            whileTap={{ scale: 0.9 }}
+
+          <button
             onClick={handleClose}
-            className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
+            className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg"
           >
             <FiX size={20} />
-          </motion.button>
-        </motion.div>
+          </button>
+        </div>
+
+        {/* Error */}
+        {error && (
+          <div className="mb-4 text-sm text-red-600 bg-red-100 p-3 rounded-xl">
+            {error}
+          </div>
+        )}
 
         {/* Form */}
-        <form onSubmit={handleSubmit}>
-          <div className="space-y-4">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-            >
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Product Name
-              </label>
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-              />
-            </motion.div>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="text"
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            placeholder="Product Name"
+            required
+            className="w-full p-3 border rounded-xl"
+          />
 
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-            >
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Price
-              </label>
-              <input
-                type="number"
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
-                required
-                min="0"
-                step="0.01"
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-              />
-            </motion.div>
+          <input
+            type="number"
+            name="price"
+            value={form.price}
+            onChange={handleChange}
+            placeholder="Price"
+            required
+            min="0"
+            step="0.01"
+            className="w-full p-3 border rounded-xl"
+          />
 
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4 }}
-            >
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Description
-              </label>
-              <textarea
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                placeholder="Enter product description"
-                className="w-full h-30 px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-              />
-            </motion.div>
-          </div>
+          <input
+            type="text"
+            name="colors"
+            value={form.colors}
+            onChange={handleChange}
+            placeholder="Colors (red, blue)"
+            required
+            className="w-full p-3 border rounded-xl"
+          />
+
+          <input
+            type="text"
+            name="size"
+            value={form.size}
+            onChange={handleChange}
+            placeholder="Sizes (S, M, L)"
+            required
+            className="w-full p-3 border rounded-xl"
+          />
+
+          <textarea
+            name="description"
+            value={form.description}
+            onChange={handleChange}
+            placeholder="Description"
+            className="w-full p-3 border rounded-xl"
+          />
 
           {/* Actions */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="flex gap-3 mt-6"
-          >
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+          <div className="flex gap-3">
+            <button
               type="button"
               onClick={handleClose}
-              className="flex-1 py-3 px-4 border border-gray-300 text-gray-700 rounded-xl font-medium hover:bg-gray-50 transition-colors"
+              disabled={loading}
+              className="flex-1 py-3 border rounded-xl"
             >
               Cancel
-            </motion.button>
-            <motion.button
-              whileHover={{
-                scale: 1.02,
-                boxShadow: "0 10px 25px rgba(79, 70, 229, 0.3)",
-              }}
-              whileTap={{ scale: 0.98 }}
+            </button>
+
+            <button
               type="submit"
-              className="flex-1 py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-medium transition-colors"
+              disabled={loading}
+              className="flex-1 py-3 bg-indigo-600 text-white rounded-xl"
             >
-              Save Changes
-            </motion.button>
-          </motion.div>
+              {loading ? "Saving..." : "Save Changes"}
+            </button>
+          </div>
         </form>
       </motion.div>
     </div>

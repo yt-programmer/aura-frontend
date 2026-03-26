@@ -44,7 +44,7 @@ const ProductsHome = () => {
           {products && products.length > 0
             ? products.map((product, index) => (
                 <motion.div
-                  key={product.id}
+                  key={product._id}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
