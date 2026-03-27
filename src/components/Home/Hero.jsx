@@ -37,7 +37,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-xl text-black rounded-2xl  bg-yellow-300/30 px-4 py-2  mb-8 max-w-lg"
+            className="text-xl text-white rounded-2xl  bg-black/30 px-4 py-2  mb-8 max-w-lg"
           >
             Explore our curated collection of premium products designed to
             elevate your lifestyle with quality and elegance.
