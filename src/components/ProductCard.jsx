@@ -10,9 +10,7 @@ const ProductCard = ({ product, isNew }) => {
     const message = `السلام عليكم، أود شراء المنتج: ${product.name} بسعر: $${product.price.toFixed(
       2,
     )}، اللون: ${selectedColor === "selectColor " || selectedColor === "لم يتم الاختيار" ? "لم يتم الاختيار" : selectedColor}, المقاس: ${selectedSize === "selectSize" || selectedSize === "لم يتم الاختيار" ? "لم يتم الاختيار" : selectedSize}`;
-    const url = `https://wa.me/201066394593?text=${encodeURIComponent(
-      message,
-    )}`;
+    const url = `https://wa.me/201?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
   return (
