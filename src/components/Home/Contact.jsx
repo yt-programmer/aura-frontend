@@ -47,7 +47,7 @@ const Contact = () => {
 
           {/* WhatsApp */}
           <motion.a
-            href="https://wa.me/201066394593"
+            href="https://wa.me/201101300304"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}

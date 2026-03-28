@@ -10,7 +10,7 @@ const ProductCard = ({ product, isNew }) => {
     const message = `السلام عليكم، أود شراء المنتج: ${product.name} بسعر: $${product.price.toFixed(
       2,
     )}، اللون: ${selectedColor === "selectColor " || selectedColor === "لم يتم الاختيار" ? "لم يتم الاختيار" : selectedColor}, المقاس: ${selectedSize === "selectSize" || selectedSize === "لم يتم الاختيار" ? "لم يتم الاختيار" : selectedSize}`;
-    const url = `https://wa.me/201?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/201101300304?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
   return (
@@ -74,7 +74,7 @@ const ProductCard = ({ product, isNew }) => {
                 onChange={(e) => {
                   setSelectedSize(e.target.value);
                 }}
-                className="ml-2 bg-gray-900 text-white rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm hover:bg-gray-800 transition-colors"
+                className="ml-2  bg-gray-900 text-white rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm hover:bg-gray-800 transition-colors"
               >
                 <option value="selectSize">Select Size</option>
                 {product.size.map((size, index) => (
