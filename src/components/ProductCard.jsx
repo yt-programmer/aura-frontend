@@ -47,7 +47,9 @@ const ProductCard = ({ product, isNew }) => {
         <div className="mb-2 flex flex-col gap-2">
           {product.colors?.length > 0 && (
             <div>
-              <span className="text-gray-500 text-sm">Colors: </span>
+              <label htmlFor="colorSelect" className="text-gray-500 text-sm">
+                Colors:{" "}
+              </label>
               <select
                 id="colorSelect"
                 onChange={(e) => {
@@ -67,7 +69,9 @@ const ProductCard = ({ product, isNew }) => {
           )}
           {product.size?.length > 0 && (
             <div>
-              <span className="text-gray-500 text-sm">Sizes: </span>
+              <label htmlFor="sizeSelect" className="text-gray-500 text-sm">
+                Sizes:{" "}
+              </label>
               <select
                 id="sizeSelect"
                 defaultValue="selectSize"
