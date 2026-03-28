@@ -29,19 +29,9 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-5xl md:text-7xl font-bold mb-3 leading-tight"
           >
-            Discover
-            <span className="block text-yellow-300">Your Style</span>
+            Quiet Power
+            <span className="block text-yellow-300">Loud Presence</span>
           </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-xl text-white rounded-2xl  bg-black/30 px-4 py-2  mb-8 max-w-lg"
-          >
-            Explore our curated collection of premium products designed to
-            elevate your lifestyle with quality and elegance.
-          </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
